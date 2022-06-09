@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="ds" class="com.mysql.cj.jdbc.MysqlDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/assignment_one"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="admin2762"></property>
+	</bean>
+	
+	<bean id="courseModel" class="com.jdc.assignment.model.Impl.CourseModelImpl">
+		<constructor-arg ref="ds"></constructor-arg>
+	</bean>
+
+	<bean id="classModel" class="com.jdc.assignment.model.Impl.ClassModelImpl">
+		<constructor-arg ref="ds"></constructor-arg>
+	</bean>
+	
+	<bean id="registrationModel" class="com.jdc.assignment.model.Impl.RegistrationModelImpl">
+		<constructor-arg ref="ds"></constructor-arg>
+	</bean>
+</beans>
